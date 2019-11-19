@@ -1,8 +1,8 @@
 let countdown;
 let display = document.querySelector('.time')
 let timerBtns = document.querySelectorAll('[data-time]')
-let currentTimer;
-let lastTimer;
+let currentTimer = 1500;
+let lastTimer = 1500;
 
 function timer(seconds) {
     currentTimer = seconds
@@ -26,10 +26,10 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
     let minutes = Math.floor(seconds / 60)
     let remainderSeconds = seconds % 60
-    let time = `${minutes < 10 ? '0' : ''}${minutes} : ${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`
+    let time = `${minutes < 10 ? '0' : ''}${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`
 
     display.textContent = time
-    document.title = time
+    document.title = `(${time}) PomodoroTimer`
 }
 
 timerBtns.forEach(btn => btn.addEventListener('click', startTimer))
@@ -63,3 +63,9 @@ function pauseTimer() {
 function restartTimer() {
     timer(currentTimer)
 }
+
+document.customTime.addEventListener('submit', function(e) {
+    e.preventDefault()
+    const mins = this.minutes.value
+    timer(mins * 60)
+})
