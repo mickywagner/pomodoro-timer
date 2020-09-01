@@ -1,7 +1,7 @@
 #Javascript Pomodoro Timer
 
 <h3>Screenshots</h3>
-<img src="">
+<img src="readme_image/app.png">
 
 <h3>About This Project</h3>
 <p>
